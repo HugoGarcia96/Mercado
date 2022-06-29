@@ -1,15 +1,16 @@
 public class Produto {
     private double preco, peso;
-    private String tipo, id;
+    private String tipo, id, nome; 
+    private int qtd;
 
-    public Produto(double preco, double peso, String tipo, String id) {
+    public Produto(double preco, double peso, String tipo, String id, String nome) { 
         this.preco = preco;
         this.peso = peso;
         this.tipo = tipo;
         this.id = id;
     }
 
-    public Produto(double preco, String tipo, String id) {
+    public Produto(double preco, String nome, String tipo, String id) {
         this.preco = preco;
         this.tipo = tipo;
         this.id = id;
@@ -46,5 +47,23 @@ public class Produto {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+      this.nome= nome;
+    }
+
+    public void exibeInfo(){
+        System.out.println("O preco do produto e " + this.preco);
+        System.out.println("O peso do produto e " + this.peso);
+        System.out.println("O nome do produto e " + this.nome);
+        System.out.println("O tipo do produto e " + this.tipo);
+    }
+    
+
+
 
 }

@@ -15,6 +15,16 @@ public class Mercado {
         this.caixa = caixa;
     }
 
-    
+    public void qtdEstoque(){
+        System.out.println("Quantidade de produtos em estoque " + estoque);
+    }
 
+    public void lucro (){
+        System.out.println("O lucro em caixa e " + caixa);
+    }
+
+    public double venda (double precoTotal, double getCarteira,int getItem ){
+        
+        
+    }
 }

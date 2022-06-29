@@ -1,11 +1,11 @@
 public class Carrinho {
-    private int item;
+    private Produto item [] = new Produto[10];
     private double precoTotal;
     
-    public int getItem() {
+    public Produto[] getItem() {
         return item;
     }
-    public void setItem(int item) {
+    public void setItem(int Produto[]) {
         this.item = item;
     }
     public double getPrecoTotal() {
@@ -15,5 +15,11 @@ public class Carrinho {
         this.precoTotal = precoTotal;
     }
 
-    
+    public void compra(Produto produtos[]){
+        double total=0;
+        
+        for(int i=0; i<produtos.length; i++){
+            total += produtos[i].getPreco();
+        }
+    }
 }
