@@ -1,19 +1,36 @@
 public class Produto {
-    private double preco, peso;
-    private String tipo, id, nome; 
-    private int qtd;
+    private double preco;
+    private String tipo, nome, peso;
+    private int id, qtd = 0;
 
-    public Produto(double preco, double peso, String tipo, String id, String nome) { 
+    public Produto(double preco, String peso, String tipo, int id, String nome, int qtd) {
         this.preco = preco;
         this.peso = peso;
         this.tipo = tipo;
         this.id = id;
+        this.nome = nome;
+        this.qtd = qtd;
     }
 
-    public Produto(double preco, String nome, String tipo, String id) {
+    public Produto(double preco, String tipo, int id, String nome, int qtd) {
         this.preco = preco;
+        this.peso = null;
         this.tipo = tipo;
         this.id = id;
+        this.nome = nome;
+        this.qtd = qtd;
+    }
+
+    public Produto() {
+
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
 
     public double getPreco() {
@@ -24,11 +41,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -40,11 +57,11 @@ public class Produto {
         this.tipo = tipo;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,17 +70,19 @@ public class Produto {
     }
 
     public void setNome(String nome) {
-      this.nome= nome;
+        this.nome = nome;
     }
 
-    public void exibeInfo(){
-        System.out.println("O preco do produto e " + this.preco);
-        System.out.println("O peso do produto e " + this.peso);
-        System.out.println("O nome do produto e " + this.nome);
-        System.out.println("O tipo do produto e " + this.tipo);
+    public void exibeInfo() {
+        if (peso == null) {
+            System.out.println("Nome: " + this.nome);
+            System.out.println("Preco: " + this.preco);
+            System.out.println("Tipo: " + this.tipo);
+        } else
+            System.out.println("Nome: " + this.nome);
+        System.out.println("Preco: " + this.preco);
+        System.out.println("Peso: " + this.peso);
+        System.out.println("Tipo: " + this.tipo);
     }
-    
-
-
 
 }
