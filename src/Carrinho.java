@@ -1,22 +1,47 @@
 import java.util.Scanner;
 
-public class Carrinho {
+public class Cliente {
     private Produto item[] = new Produto[3];
     private Produto pd[] = new Produto[3];
-    private double Carteira, precoTotal = 0;
+    private String nome, cpf;
+    private double carteira, precoTotal = 0;
     private int qntItens, choice = 0;
 
     Scanner scan = new Scanner(System.in);
 
-    public Carrinho(Produto[] pd, double precoTotal, int qntItens) {
+    public Cliente(Produto[] pd, double precoTotal, int qntItens) {
         this.pd = pd;
         this.precoTotal = precoTotal;
         this.qntItens = qntItens;
     }
 
-    public Carrinho() {
+    public Cliente() {
         this.precoTotal = 0;
         this.qntItens = 0;
+    }
+
+     public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public double getCarteira() {
+        return carteira;
+    }
+
+    public void setCarteira(double carteira) {
+        this.carteira = carteira;
     }
 
     public Produto[] getItem() {
@@ -39,10 +64,10 @@ public class Carrinho {
         for (int i = 0; i < 3; i++) {
             item[i] = new Produto();
             item[i].exibeInfo();
-            System.out.println("===============================");
-            System.out.println("Voce quer comprar esse produto?");
-            System.out.println("      1: SIM  |  0: NAO        ");
-            System.out.println("===============================");
+            System.out.println("=============================================");
+            System.out.println("Voce quer Adicionar esse produto ao Carrinho?");
+            System.out.println("              1: SIM  |  0: NAO              ");
+            System.out.println("=============================================");
             int choice = scan.nextInt();
             if (choice == 1) {
                 pd[i] = item[i];
