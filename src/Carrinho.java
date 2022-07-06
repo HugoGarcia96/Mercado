@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Cliente {
+public class Carrinho {
     private Produto item[] = new Produto[3];
     private Produto pd[] = new Produto[3];
     private String nome, cpf;
@@ -9,13 +9,13 @@ public class Cliente {
 
     Scanner scan = new Scanner(System.in);
 
-    public Cliente(Produto[] pd, double precoTotal, int qntItens) {
+    public Carrinho(Produto[] pd, double precoTotal, int qntItens) {
         this.pd = pd;
         this.precoTotal = precoTotal;
         this.qntItens = qntItens;
     }
 
-    public Cliente() {
+    public Carrinho() {
         this.precoTotal = 0;
         this.qntItens = 0;
     }
@@ -78,6 +78,7 @@ public class Cliente {
 
     }
 
+    
     public void corrigirEstoque() {
         for (int i = 0; i < 3; i++) {
             System.out.println("==========================================");
