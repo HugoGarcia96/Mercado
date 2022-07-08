@@ -26,7 +26,4 @@ public class Mercado {
         System.out.println("O lucro em caixa e " + caixa);
     }
 
-    public double venda() {
-
-    }
 }

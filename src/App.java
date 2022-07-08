@@ -1,116 +1,120 @@
 import java.util.Scanner;
 
 public class App {
-
-    public static void menu(){
+    public static void menu() {
         System.out.println("1 - Adicionar novo Produto no estoque.");
-        System.out.println("2 - Deletar Produto."); 
-        System.out.println("3 - Listar Produtos."); 
-        System.out.println("4 - Sair."); 
+        System.out.println("2 - Para vender um produto");
+        System.out.println("3 - Listar Produtos no estoque.");
+        System.out.println("0 - Sair.");
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String Args[]) {
+        ProdutoPeso estoqueProdPeso[] = new ProdutoPeso[50];
+        ProdutoUnidade estoqueProdUnidade[] = new ProdutoUnidade[50];
+
+        estoqueProdPeso[0] = new ProdutoPeso(1, "Tomate", 3, 50);
+        estoqueProdPeso[1] = new ProdutoPeso(2, "Cenoura", 2.5, 100);
+        estoqueProdPeso[2] = new ProdutoPeso(3, "Beterraba", 2, 70);
+
+        estoqueProdUnidade[0] = new ProdutoUnidade(4, "Ovo", 11, 100);
+        estoqueProdUnidade[1] = new ProdutoUnidade(5, "Leite", 7, 100);
+        estoqueProdUnidade[2] = new ProdutoUnidade(6, "Arroz", 20, 70);
+
+        int qtdProdPeso = 3, qtdProdUnidade = 3, opc = 81;
+
         Scanner scan = new Scanner(System.in);
 
-        Produto estoque[] = new Produto[100];
-        int op=0, qtdprodutos=0;
-
-        Produto p0 = new Produto(58.00, "1 kg", "alimento", 0, "picanha", 10);
-        Produto p1 = new Produto(18.70, "objeto", 1, "faca", 8);
-        Produto p2 = new Produto(24.50, "500 ml", "bebida", 2, "vinho", 14);
-        Cliente c[] = new Cliente[3];
-        int idc; 
-        String cpf;
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println("=================");
-            System.out.println("Faca seu cadastro");
-            System.out.println("=================");
-
-            System.out.println("Insira seu Nome:");
-            c[i].setNome(scan.nextLine());
-
-            System.out.println("Insira seu Cpf: ");
-            c[i].setCpf(scan.nextLine());           
-
-            System.out.println("Insira seu Saldo: ");
-            c[i].setCarteira(scan.nextInt());
-            
-            c[i].setIdCliente(i);
-            System.out.println("Seu ID e: " +c[i].getIdCliente());
-
-            for (int k = 0; k < 100; k++)
-                System.out.println(" ");
-        }
-
-       /* System.out.println("=====================");
-        System.out.println("Consulte seu carrinho");
-        System.out.println("=====================");
-        System.out.println("Insira seu Id:");
-        idc = scan.nextInt();
-        System.out.println("Insira seu Cpf:");
-        cpf = scan.nextLine();
-        if(c[idc].getCpf().equals(cpf)){
-
-        }else
-        System.out.println("Cpf incompativel");
-
-        scan.close();*/
-
-        while(op!=4){
-            
+        while (opc != 0) {
             menu();
-            op = scan.nextInt();
+            opc = scan.nextInt();
 
-            switch(op){
-                case 1:{
-                    estoque[qtdprodutos] = Produto.criaProdutoParaEstoque();
+            switch (opc) {
+                case 1: {
+                    int opcao = 0;
+                    System.out.println("Escolha a opção: ");
+                    System.out.println("1 - Adicionar Produto por Peso");
+                    System.out.println("2 - Adicionar Produto por Unidade.");
+                    System.out.println("");
 
-                    qtdprodutos++;
+                    opcao = scan.nextInt();
 
-                    break;
-                }
-                case 2:{
-                    int indice = 0, i=0;
-                    
-                    System.out.print("Informe qual produto deseja excluir: "); 
-                    
-                    for(i=0; i<qtdprodutos; i++){
-                        System.out.println((i+1)+" "+estoque[i].getNome());
-                 
-                    }
-                    System.out.println();
-                    indice = scan.nextInt();
-                    indice = indice - 1;
+                    if (opcao == 1) {
+                        estoqueProdPeso[qtdProdPeso] = ProdutoPeso.criaProdutoPeso();
+                        qtdProdPeso++;
 
-                    for(i=indice; i<(qtdprodutos-1); i++){
-                        estoque[i] = estoque[i+1];
-                 
-                    }
-                    qtdprodutos--;
-                    
-                    break;
-                }
-                case 3:{
-                    int i=0;  
-                   
-                    for(i=0; i<qtdprodutos; i++){
-                        estoque[i].exibeInfo();
-                        System.out.println();
+                    } else if (opcao == 2) {
+                        estoqueProdUnidade[qtdProdUnidade] = ProdutoUnidade.criaProdutoUnidade();
+                        qtdProdUnidade++;
 
+                    } else {
+                        System.out.println("Opção Inváda.");
                     }
 
                     break;
                 }
-                case 4:{
-                    System.out.print("Programa Encerrado. "); 
+
+                case 2: {
+                    int opcao = 0, i = 0, indice = 0;
+                    System.out.println("Escolha a opção: ");
+                    System.out.println("1 - Remover Produto por Peso");
+                    System.out.println("2 - Remover Produto por Unidade.");
+                    System.out.println("");
+
+                    opcao = scan.nextInt();
+
+                    if (opcao == 1) {
+                        for (i = 0; i < qtdProdPeso; i++) {
+                            System.out.println((1 + i) + " - " + estoqueProdPeso[i].getNome());
+
+                        }
+                        System.out.println("Qual Produto deseja remover: ");
+                        indice = scan.nextInt();
+
+                        for (i = indice; i < (qtdProdPeso - 1); i++) {
+                            estoqueProdPeso[i] = estoqueProdPeso[i + 1];
+                        }
+
+                        qtdProdPeso--;
+
+                    } else if (opcao == 2) {
+                        for (i = 0; i < qtdProdUnidade; i++) {
+                            System.out.println((1 + i) + " - " + estoqueProdUnidade[i].getNome());
+
+                        }
+                        System.out.println("Qual Produto deseja remover: ");
+                        indice = scan.nextInt();
+
+                        for (i = indice; i < (qtdProdUnidade - 1); i++) {
+                            estoqueProdUnidade[i] = estoqueProdUnidade[i + 1];
+                        }
+
+                        qtdProdUnidade--;
+
+                    } else {
+                        System.out.println("Opção Inváda.");
+                    }
+
+                    break;
+                }
+
+                case 3: {
+                    int i = 0;
+
+                    for (i = 0; i < qtdProdPeso; i++) {
+                        estoqueProdPeso[i].imprime();
+
+                    }
+
+                    for (i = 0; i < qtdProdUnidade; i++) {
+                        estoqueProdUnidade[i].imprime();
+
+                    }
 
                     break;
                 }
             }
         }
+
         scan.close();
-
     }
-
 }
