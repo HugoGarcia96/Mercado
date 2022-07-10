@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class ProdutoPeso extends Produto implements InterfaceProdutos{
 	private double peso;
 	
-	public ProdutoPeso(int id, String nome, double valor, double peso, int qtd) {
-		super(id, nome, valor, qtd);
+	public ProdutoPeso(int id, String nome, double valor, double peso) {
+		super(id, nome, valor);
 		this.peso = peso;
 	}
 	
@@ -15,7 +15,7 @@ public class ProdutoPeso extends Produto implements InterfaceProdutos{
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-
+@Override
 	public double valorTotal() {
 		return (this.peso * this.getValor());
 	}
@@ -47,7 +47,7 @@ public class ProdutoPeso extends Produto implements InterfaceProdutos{
 		System.out.println("Peso: ");
 		peso = scan.nextDouble();
 		
-		ProdutoPeso p = new ProdutoPeso(id, nome, valor, peso, qtd);
+		ProdutoPeso p = new ProdutoPeso(id, nome, valor, peso);
 		
 		return p;
 	}

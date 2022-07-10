@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void menu() {
         System.out.println("1 - Adicionar novo Produto no estoque.");
-        System.out.println("2 - Para vender um produto");
+        System.out.println("2 - Para vender um produto do estoque");
         System.out.println("3 - Listar Produtos no estoque.");
         System.out.println("0 - Sair.");
     }
@@ -12,13 +12,13 @@ public class App {
         ProdutoPeso estoqueProdPeso[] = new ProdutoPeso[50];
         ProdutoUnidade estoqueProdUnidade[] = new ProdutoUnidade[50];
 
-        estoqueProdPeso[0] = new ProdutoPeso(1, "Tomate", 3, 50; 500);
-        estoqueProdPeso[1] = new ProdutoPeso(2, "Cenoura", 2.5, 100, 500);
-        estoqueProdPeso[2] = new ProdutoPeso(3, "Beterraba", 2, 70, 500);
+        estoqueProdPeso[0] = new ProdutoPeso(1, "Tomate", 3, 50);
+        estoqueProdPeso[1] = new ProdutoPeso(2, "Cenoura", 2.5, 100);
+        estoqueProdPeso[2] = new ProdutoPeso(3, "Beterraba", 2, 70);
 
-        estoqueProdUnidade[0] = new ProdutoUnidade(4, "Ovo", 11, 100, 500);
-        estoqueProdUnidade[1] = new ProdutoUnidade(5, "Leite", 7, 100, 500);
-        estoqueProdUnidade[2] = new ProdutoUnidade(6, "Arroz", 20, 70, 500);
+        estoqueProdUnidade[0] = new ProdutoUnidade(4, "Ovo", 11, 100);
+        estoqueProdUnidade[1] = new ProdutoUnidade(5, "Leite", 7, 100);
+        estoqueProdUnidade[2] = new ProdutoUnidade(6, "Arroz", 20, 100);
 
         int qtdProdPeso = 3, qtdProdUnidade = 3, opc = 81;
 
@@ -112,6 +112,8 @@ public class App {
 
                     break;
                 }
+                
+
             }
         }
 
