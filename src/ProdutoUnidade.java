@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class ProdutoUnidade extends Produto implements InterfaceProdutos{
 	private int quantidade;
 	
-	public ProdutoUnidade(int id, String nome, double valor, int quantidade) {
-		super(id, nome, valor);
+	public ProdutoUnidade(int id, String nome, double valor, int quantidade, int qtd) {
+		super(id, nome, valor, qtd);
 		this.quantidade = quantidade;
 		
 	}
@@ -24,6 +24,7 @@ public class ProdutoUnidade extends Produto implements InterfaceProdutos{
 		int id=0, quantidade=0;
 		double valor=0;
 		String nome;
+		int qtd=0;
 		
 		Scanner scan = new Scanner(System.in);
 		
@@ -39,7 +40,7 @@ public class ProdutoUnidade extends Produto implements InterfaceProdutos{
 		System.out.println("Quantidade: ");
 		quantidade = scan.nextInt();
 		
-		ProdutoUnidade p = new ProdutoUnidade(id, nome, valor, quantidade);
+		ProdutoUnidade p = new ProdutoUnidade(id, nome, valor, quantidade, qtd);
 		
 		return p;
 	}

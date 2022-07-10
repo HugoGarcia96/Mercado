@@ -4,7 +4,7 @@ public abstract class Produto {
 	private double valor;
 	private int qtd;
 
-	public Produto(int id, String nome, double valor) {
+	public Produto(int id, String nome, double valor, int qtd) {
 		this.id = id;
 		this.nome = nome;
 		this.valor = valor;
