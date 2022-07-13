@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void menu() {
         System.out.println("1 - Adicionar novo Produto no estoque.");
-        System.out.println("2 - Para vender um produto do estoque");
+        System.out.println("2 - Para remover um produto do estoque");
         System.out.println("3 - Listar Produtos no estoque.");
         System.out.println("0 - Sair.");
     }
